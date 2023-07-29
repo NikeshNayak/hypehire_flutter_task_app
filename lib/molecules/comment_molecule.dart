@@ -11,6 +11,7 @@ class CommentMolecule extends StatelessWidget {
   final String title;
   final String body;
   final bool isVerified;
+  final bool isReply;
   final Widget? child;
 
   const CommentMolecule({
@@ -19,6 +20,7 @@ class CommentMolecule extends StatelessWidget {
     required this.body,
     required this.imagePath,
     required this.isVerified,
+    required this.isReply,
     this.child,
   });
 
@@ -88,21 +90,22 @@ class CommentMolecule extends StatelessWidget {
                   fontFamily: AppTypography.familyNotoSans,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Row(
                   children: [
-                    PostIconAtom(
+                    const PostIconAtom(
                       path: AppImagePath.heart,
                       size: 20,
                       count: '5',
                     ),
-                    SizedBox(width: 12),
-                    PostIconAtom(
-                      path: AppImagePath.reply,
-                      size: 20,
-                      count: '5',
-                    ),
+                    const SizedBox(width: 12),
+                    if (isReply)
+                      const PostIconAtom(
+                        path: AppImagePath.reply,
+                        size: 20,
+                        count: '5',
+                      ),
                   ],
                 ),
               ),

@@ -88,11 +88,13 @@ class _HomePageState extends State<HomePage> {
                         body: AppStrings.comment1BodyText,
                         imagePath: AppImagePath.avatar,
                         isVerified: true,
+                        isReply: true,
                         child: CommentMolecule(
                           title: AppStrings.personTwoText,
                           body: AppStrings.comment2BodyText,
                           imagePath: AppImagePath.avatar2,
                           isVerified: false,
+                          isReply: false,
                         ),
                       ),
                     ],
